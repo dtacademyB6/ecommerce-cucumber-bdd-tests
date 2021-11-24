@@ -1,0 +1,28 @@
+For Cucumber framework we will need the following 3 dependencies:
+cucumber-java, cucumber-core, cucumber-junit
+
+In Cucumber framework:
+  - the test scenarios are put in a feature file which are usually are created under resources folder
+  - the feature file scenario steps are connected to step definitions through @CucumberOptions glue option in Runner class
+      // Cucumber scenario step is matched to step definition method using the text of the scenario step
+      // either with Regular Expressions or Cucumber Expressions
+  - tags are the main way to control what scenario or feature files
+  - Background -> the common steps for ALL scenarios of a feature file can be moved to Background steps
+  - Hooks -> Step definition methods annotated with @Before and @After that are executed before/after each SCENARIO
+             The annotated methods can be added into any class under Step Definitions folder but usually added into a separate class
+
+
+
+  If you need to specify information in a scenario that won't fit on a single line, you can use a DocString. (""" """)
+  When you use a doctring make sure to put each triple quote on its own line.
+  Ex: Scenario: Example scenario for Database
+      When I send the following query
+        """
+           select first_name,last_name,email,address,district,city,country from customer
+           join address
+           on customer.address_id = address.address_id
+           join city
+           on address.city_id  = city.city_id
+           join country
+           on city.country_id = country.country_id;
+         """

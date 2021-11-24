@@ -7,7 +7,7 @@ Feature: As a user, I should be able to perform a product search on the website
 
 
   #@test or @temp and @second
-  @second @temp
+  @second
   Scenario: Search a product using valid product name1
 
     When I search for a Blouse
@@ -15,7 +15,7 @@ Feature: As a user, I should be able to perform a product search on the website
     And the search term should be correct
 
 
-  @temp
+
   Scenario: Search a product using valid product name2
 
     When I search for a Blouse
@@ -30,10 +30,35 @@ Feature: As a user, I should be able to perform a product search on the website
     Then I should land on the search page
     And the search term should be correct
 
-  @second
+
   Scenario: Search a product using empty search term
 
    When I do not enter any search term
     Then  I should land on the search page
     And the error message should be there
+
+
+  Scenario: Search a product using valid product name Dress
+
+    When I search for a "Dress"
+    Then I should land on the search page
+    And the search term should be correct
+
+
+  Scenario: Search a product using valid product name Dress
+
+    When I search for a "Summer"
+    Then I should land on the search page
+    And the search term should be correct
+
+
+
+  Scenario: Search a product using valid product name Dress
+
+    When I search for a "Shirt"
+    Then I should land on the search page
+    And the search term should be correct
+
+
+
 
