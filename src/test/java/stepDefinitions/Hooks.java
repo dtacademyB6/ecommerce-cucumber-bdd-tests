@@ -12,7 +12,7 @@ import java.time.Duration;
 public class Hooks {
 
 //     Hook methods run before and after each scenario
-    @Before ("@ui")
+    @Before
     public void setupScenario(){
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5)) ;
         Driver.getDriver().manage().window().maximize();
@@ -25,7 +25,7 @@ public class Hooks {
 
     }
 
-    @After ("@ui")
+    @After
     public void tearDownScenario(){
 
         Driver.quitDriver();

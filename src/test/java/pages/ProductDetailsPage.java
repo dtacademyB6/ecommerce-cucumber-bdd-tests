@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,6 +10,20 @@ import utilities.Driver;
 public class ProductDetailsPage {
 
 
+    @FindBy(xpath = "//span[@itemprop='sku']")
+    public WebElement model;
+
+
+    @FindBy(xpath = "//p[@id='product_condition']//span[@class='editable']")
+    public WebElement condition;
+
+
+    @FindBy(tagName = "h1")
+    public WebElement productName;
+
+
+    @FindBy(id = "group_1")
+    public WebElement defaultSize;
 
     public ProductDetailsPage(){
         PageFactory.initElements(Driver.getDriver(), this);

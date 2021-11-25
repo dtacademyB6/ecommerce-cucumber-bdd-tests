@@ -26,3 +26,19 @@ In Cucumber framework:
            join country
            on city.country_id = country.country_id;
          """
+
+
+      What are some common Cucumber exceptions?
+
+      UndefinedStepException -  when a scenario step does not have matching step definition method
+
+      PendingException - default exception that added to each step definition snippet
+
+      AmbiguousStepDefinitionsException - this happens when one step has more than one matching step definitions
+
+      DuplicateStepDefinitionException - happens when there are more than step definitions with the exactly matching text
+
+
+
+      When Cucumber converts the DataTable into corresponding Java data structures (List, Map), it creates
+      unmodifiable versions of these data structures.

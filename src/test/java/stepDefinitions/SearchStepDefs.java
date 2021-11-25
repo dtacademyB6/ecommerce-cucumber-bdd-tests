@@ -38,11 +38,17 @@ public class SearchStepDefs {
     @Then("I search for a Blouse") // "I search for a Blouse" -> Cucumber expression
     // Cucumber scenario step is matched to step definition method using the text of the scenario step
     // either with Regular Expressions or Cucumber Expressions
-    public void i_search_for_a_blouse() {
+    public void iSearchForABlouse() {
         HomePage homePage = new HomePage();
         expectedSearchTerm = "Blouse".toLowerCase();
         homePage.searchBox.sendKeys(expectedSearchTerm + Keys.ENTER);
     }
+
+
+
+
+
+
     @Then("I should land on the search page")
     public void i_should_land_on_the_search_page_and_the_search_term_should_be_correct() {
         assertEquals("Search - My Store", Driver.getDriver().getTitle());
@@ -77,6 +83,11 @@ public class SearchStepDefs {
     public void the_response_should_be_correct() {
 
     }
+
+
+
+
+
 
 //
 
