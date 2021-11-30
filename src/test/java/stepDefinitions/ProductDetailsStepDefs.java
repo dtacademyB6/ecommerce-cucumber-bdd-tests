@@ -4,10 +4,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.HomePage;
 import pages.ProductDetailsPage;
+import pages.ShoppingCartPage;
 import utilities.Driver;
+import utilities.SeleniumUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +20,9 @@ import java.util.Map;
 public class ProductDetailsStepDefs {
 
     String productNameAnother;
+    Integer quantityExp;
+    String expectedSizeClass;
+    String expectedColorClass;
     @When("I click on {string}")
     public void i_click_on(String productName) throws InterruptedException {
         productNameAnother = productName;
@@ -84,6 +92,65 @@ public class ProductDetailsStepDefs {
     @Then("The title of the page should contain {string}")
     public void theTitleOfThePageShouldContain(String string) {
       Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
+    }
+
+
+    @When("I increase the quantity to {int} and choose size {string} and color {string} and click on add to cart button")
+    public void iIncreaseTheQuantityToAndChooseSizeAndColor(Integer quantity, String expectedSize, String expectedColor) throws InterruptedException {
+
+        quantityExp = quantity;
+        expectedSizeClass =  expectedSize;
+        expectedColorClass = expectedColor;
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage();
+
+        for (int i = 0; i < quantity-1; i++) {
+            productDetailsPage.plusButton.click();
+        }
+
+
+
+
+        productDetailsPage.chooseSize(expectedSize);
+        productDetailsPage.chooseColor(expectedColor);
+
+        productDetailsPage.addToCartButton.click();
+
+
+//
+
+
+
+
+    }
+
+    @Then("The quantity, size and color should be correct")
+    public void theQuantitySizeAndColorShouldBeCorrect() throws InterruptedException {
+
+
+
+
+
+        String actualQuantity = new ShoppingCartPage().quantity.getText().substring(0,1);
+        Assert.assertEquals(quantityExp, Integer.valueOf(actualQuantity));
+
+        String sizeAndColor = new ShoppingCartPage().sizeAndColor.getText();
+        String actualSize = sizeAndColor.substring(sizeAndColor.length()-1);
+        Assert.assertEquals(expectedSizeClass, actualSize);
+
+        String actualColor = sizeAndColor.split(" ")[2].replace(",", "");
+        Assert.assertEquals(expectedColorClass, actualColor);
+        Thread.sleep(2000);
+
+
+    }
+
+
+    @When("I click on Proceed to Checkout")
+    public void iClickOnProceedToCheckout() throws InterruptedException {
+        Thread.sleep(3000);
+       new ProductDetailsPage().proceedButton.click();
+       Thread.sleep(2000);
+
     }
 
 }

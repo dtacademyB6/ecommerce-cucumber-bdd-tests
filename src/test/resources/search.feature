@@ -60,6 +60,38 @@ Feature: As a user, I should be able to perform a product search on the website
     And the search term should be correct
 
 
+    Scenario: Example of Datatable List
+
+
+      When I pass this information
+        | John                         |
+        | Doe                          |
+        | 12/09/1999                   |
+        | 235-345-1234                 |
+        | 322-09-6322                  |
+        | 123 Main St, Vienna VA 22056 |
+
+
+
+  Scenario: Example of Datatable List
+
+
+    When I pass this information as List of Lists
+      | John | Doe | 12/09/1999 | 235-345-1234 | 322-09-6322 | 123 Main St, Vienna VA 22056 |
+
+
+
+  Scenario: Example of Datatable List of Maps
+
+
+    When I pass this information as List of Maps
+      | First | Last | dob        | phone        | ssn         | address                      |
+      | John  | Doe  | 12/09/1999 | 235-345-1234 | 322-09-6322 | 123 Main St, Vienna VA 22056 |
+
+
+
+
+
 
 
 

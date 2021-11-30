@@ -54,7 +54,7 @@ Feature: Homepage related features
       | Printed Chiffon Dress       | 16.40  |demo_7 | New |
 
 
-    @temp
+
     Scenario: Verify a single products details
       Given I am on the homepage
       When I click on "Blouse"

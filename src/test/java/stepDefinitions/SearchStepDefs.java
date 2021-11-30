@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,6 +15,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.sql.SQLOutput;
+import java.util.List;
+import java.util.Map;
 
 public class SearchStepDefs {
 
@@ -79,10 +82,28 @@ public class SearchStepDefs {
         System.out.println("This is the docstring that is passed:");
         System.out.println(docString);
     }
-    @Then("The response should be correct")
-    public void the_response_should_be_correct() {
+
+
+    @When("I pass this information")
+    public void iPassThisInformation(List<String> dataTable) {
+
+
+        System.out.println(dataTable);
 
     }
+
+    @When("I pass this information as List of Lists")
+    public void iPassThisInformationAsListOfLists(List<List<String>> dataTable) {
+        System.out.println(dataTable.get(0).get(1));
+    }
+
+    @When("I pass this information as List of Maps")
+    public void iPassThisInformationAsListOfMaps(List<Map<String,String>> dataTable) {
+
+
+        System.out.println(dataTable.get(0).get("phone"));
+    }
+
 
 
 

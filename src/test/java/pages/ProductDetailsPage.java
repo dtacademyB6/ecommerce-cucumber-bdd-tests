@@ -1,9 +1,11 @@
 package pages;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.w3c.dom.html.HTMLInputElement;
 import utilities.Driver;
 
@@ -25,10 +27,18 @@ public class ProductDetailsPage {
     @FindBy(id = "group_1")
     public WebElement defaultSize;
 
+
+    @FindBy(xpath = "//a[@title='Proceed to checkout']")
+    public WebElement proceedButton;
+
     public ProductDetailsPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
+
+    @FindBy(xpath = "//button[@name='Submit']")
+    public WebElement addToCartButton;
 
     @FindBy(id = "quantity_wanted")
     public WebElement defaultQuantity;
@@ -43,6 +53,16 @@ public class ProductDetailsPage {
     public WebElement price;
 
 
+    public void chooseSize(String size){
+       new Select( Driver.getDriver().findElement(By.id("group_1"))).selectByVisibleText(size);
+    }
+
+
+    //a[@title='Blue']
+
+    public void chooseColor(String color){
+        Driver.getDriver().findElement(By.xpath("//a[@title='"+color+"']")).click();
+    }
 
 
 }
