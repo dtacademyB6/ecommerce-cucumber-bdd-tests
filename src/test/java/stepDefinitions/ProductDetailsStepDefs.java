@@ -75,11 +75,11 @@ public class ProductDetailsStepDefs {
 
         SoftAssertions softAssertions = new SoftAssertions();
 
-        softAssertions.assertThat(expectedData.get("name")).isEqualTo(productDetailsPage.productName.getText() + "nds");
+        softAssertions.assertThat(expectedData.get("name")).isEqualTo(productDetailsPage.productName.getText() );
 
         softAssertions.assertThat(expectedData.get("price")).isEqualTo(productDetailsPage.price.getText().substring(1));
         softAssertions.assertThat(expectedData.get("model")).isEqualTo( productDetailsPage.model.getText() );
-        softAssertions.assertThat(expectedData.get("condition")).isEqualTo( productDetailsPage.condition.getText() +"svsc" );
+        softAssertions.assertThat(expectedData.get("condition")).isEqualTo( productDetailsPage.condition.getText());
         softAssertions.assertThat(expectedData.get("default_quantity")).isEqualTo( productDetailsPage.defaultQuantity.getAttribute("value"));
         softAssertions.assertThat(expectedData.get("default_size")).isEqualTo( new Select(new ProductDetailsPage().defaultSize).getFirstSelectedOption().getText() );
 
@@ -151,6 +151,12 @@ public class ProductDetailsStepDefs {
        new ProductDetailsPage().proceedButton.click();
        Thread.sleep(2000);
 
+    }
+
+
+    @Then("The product price should be {double}")
+    public void theProductPriceShouldBe(Double expected) {
+       Assert.assertEquals(expected, Double.valueOf(new ProductDetailsPage().price.getText().substring(1)));
     }
 
 }

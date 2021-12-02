@@ -56,3 +56,36 @@ In Cucumber framework:
 
       When Cucumber converts the DataTable into corresponding Java data structures (List, Map), it creates
       unmodifiable versions of these data structures.
+
+
+      Running tests thru CMD in Cucumber Framework:
+
+      -Add Maven Surefire plugin (latest version)
+      - Configure it by including the name of the class to run:
+
+                         <configuration>
+                              <includes>
+                                  <include>**/*CucumberRunner.java</include>
+                              </includes>
+                          </configuration>
+
+      - run with mvn test
+
+      Running scenarios with specific tags thru cmd:
+
+
+      mvn verify -Dcucumber.filter.tags="@temp"
+      mvn verify -Dcucumber.filter.tags="@test and @temp"
+      mvn verify -Dcucumber.filter.tags="@test or @temp"
+      mvn verify -Dcucumber.filter.tags="@test and not @temp"
+
+      When you run your test through CMD using Maven, tags passed thru CMD will override the tags from CukeRunner class.
+
+
+
+
+
+
+
+
+

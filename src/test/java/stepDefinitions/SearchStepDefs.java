@@ -61,9 +61,9 @@ public class SearchStepDefs {
 
     @Then("the search term should be correct")
     public void the_search_term_should_be_correct() {
-        String actualSearchTerm =  new SearchPage().searchTerm.getText().toLowerCase();
-        System.out.println(actualSearchTerm);
-        assertTrue(actualSearchTerm.contains(expectedSearchTerm));
+        String actualSearchTerm =  new SearchPage().searchTerm.getText().toLowerCase() ;
+
+        assertTrue(actualSearchTerm.contains(expectedSearchTerm+ "BLABALA"));
 
 
     }

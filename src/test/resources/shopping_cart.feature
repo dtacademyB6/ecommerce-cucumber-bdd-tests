@@ -1,5 +1,7 @@
 Feature:  As a user I should be able to add and checkout using shopping cart page
-  @temp
+
+
+
   Scenario: Verify shopping cart deatils
     Given I am on the homepage
     When I click on "Blouse"

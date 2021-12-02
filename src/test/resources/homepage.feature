@@ -64,5 +64,23 @@ Feature: Homepage related features
       Then The title of the page should contain "Blouse"
 
 
+  @temp
+  Scenario Outline: Verify a products details for multiple products
+    Given I am on the homepage
+    When I click on "<Product Name>"
+    Then The details of the product should be the following
+      | name           | price   | model   | condition   | default_quantity   | default_size   |
+      | <Product Name> | <price> | <model> | <condition> | <default_quantity> | <default_size> |
+    Then The title of the page should contain "<Product Name>"
+
+    Examples:
+      | Product Name                | price | model  | condition | default_quantity | default_size |
+      | Blouse                      | 27.00 | demo_2 | New       | 1                | S            |
+      | Printed Dress               | 26.00 | demo_3 | New       | 1                | S            |
+      | Printed Summer Dress        | 28.98 | demo_5 | New       | 1                | S            |
+      | Printed Chiffon Dress       | 16.40 | demo_7 | New       | 1                | S            |
+      | Faded Short Sleeve T-shirts | 16.51 | demo_1 | New       | 1                | S            |
+
+
 
 
