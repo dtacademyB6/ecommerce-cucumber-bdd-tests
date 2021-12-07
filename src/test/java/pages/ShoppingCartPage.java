@@ -26,7 +26,7 @@ public class ShoppingCartPage {
     @FindBy(xpath = "//small[@class='cart_ref']")
     public WebElement SKU;
 
-    @FindBy(xpath = "//td[@data-title='Unit price']//span[@class='price'][not(@id)]")
+    @FindBy(xpath = "//td[@data-title='Unit price']//span[contains(@class, 'price')][not(@id)]")
     public WebElement unitPrice;
 
     @FindBy(id = "total_shipping")

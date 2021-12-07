@@ -82,6 +82,9 @@ In Cucumber framework:
       When you run your test through CMD using Maven, tags passed thru CMD will override the tags from CukeRunner class.
 
 
+      In Cucumber framework we can implement data-driven testing natively with Scenario Outline with Examples table
+
+
 
 
 

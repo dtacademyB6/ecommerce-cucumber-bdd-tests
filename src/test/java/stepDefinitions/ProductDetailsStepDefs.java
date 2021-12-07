@@ -130,7 +130,17 @@ public class ProductDetailsStepDefs {
 
 
 
-        String actualQuantity = new ShoppingCartPage().quantity.getText().substring(0,1);
+        String actualQuantityWithExtra = new ShoppingCartPage().quantity.getText();
+
+        String actualQuantity = "";
+        for (int i = 0; i < actualQuantityWithExtra.length(); i++) {
+              if(Character.isDigit(actualQuantityWithExtra.charAt(i))){
+                actualQuantity+= actualQuantityWithExtra.charAt(i);
+            }
+        }
+         // The code to extract the price out of the whole String
+
+
         Assert.assertEquals(quantityExp, Integer.valueOf(actualQuantity));
 
         String sizeAndColor = new ShoppingCartPage().sizeAndColor.getText();

@@ -34,7 +34,7 @@ Feature: Homepage related features
 
 
 
-  Scenario: Example scenario for sample DataTable that is converted to List of
+  Scenario: Example scenario for sample DataTable that is converted to List of Maps
     Given I am on the homepage
     Then I should see the following customers using
       | firstName   | lastName | birthDate  |
@@ -64,7 +64,7 @@ Feature: Homepage related features
       Then The title of the page should contain "Blouse"
 
 
-  @temp
+
   Scenario Outline: Verify a products details for multiple products
     Given I am on the homepage
     When I click on "<Product Name>"
