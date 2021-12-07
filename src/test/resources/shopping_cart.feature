@@ -15,7 +15,7 @@ Feature:  As a user I should be able to add and checkout using shopping cart pag
 
 
 
-  @temp
+
   Scenario Outline: Verify shopping cart details using different sets of data
     Given I am on the homepage
     When I click on "<Name>"

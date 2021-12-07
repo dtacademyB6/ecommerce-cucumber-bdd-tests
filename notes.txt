@@ -83,6 +83,7 @@ In Cucumber framework:
 
 
       In Cucumber framework we can implement data-driven testing natively with Scenario Outline with Examples table
+      If we have a large a dataset it can also read from an external file such as csv or excel file.
 
 
 

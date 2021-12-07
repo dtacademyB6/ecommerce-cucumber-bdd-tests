@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.HomePage;
 import pages.ProductDetailsPage;
@@ -97,6 +98,11 @@ public class HomePageStepDefs {
         }
 
         Assert.assertEquals(expectedMap, actualMap);
+
+    }
+
+    @When("I click on on products that are on sale their expected values should be correct according to the given excel file")
+    public void iClickOnOnProductsThatAreOnSaleTheirExpectedValuesShouldBeCorrectAccordingToTheGivenExcelFile() {
 
     }
 }
