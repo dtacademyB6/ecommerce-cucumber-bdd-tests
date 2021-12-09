@@ -1,12 +1,13 @@
 package pages;
 
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.w3c.dom.html.HTMLInputElement;
+
 import utilities.Driver;
 
 public class ProductDetailsPage {
@@ -30,6 +31,13 @@ public class ProductDetailsPage {
 
     @FindBy(xpath = "//a[@title='Proceed to checkout']")
     public WebElement proceedButton;
+
+
+    @FindBy(xpath = "//tr[@class='odd']/td[2]")
+    public WebElement composition;
+
+    @FindBy(xpath = "//tr[@class='even']/td[2]")
+    public WebElement style;
 
     public ProductDetailsPage(){
         PageFactory.initElements(Driver.getDriver(), this);

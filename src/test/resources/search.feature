@@ -15,7 +15,7 @@ Feature: As a user, I should be able to perform a product search on the website
     And the search term should be correct
 
 
-  @smoke
+  @sprint2
   Scenario: Search a product using valid product name2
 
     When I search for a Blouse
