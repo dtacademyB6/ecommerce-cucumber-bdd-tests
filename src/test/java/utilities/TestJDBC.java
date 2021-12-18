@@ -87,5 +87,8 @@ public class TestJDBC {
         statement.executeUpdate("UPDATE users SET email='magdalena2021@gmail.com' where username='magdalena'");
 
 
+
+
+
     }
 }

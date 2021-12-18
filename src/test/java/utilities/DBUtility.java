@@ -11,13 +11,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 public class DBUtility {
+
     private static Connection connection;
     private static Statement statement;
     private static ResultSet resultSet;
+
+
+
+
+
     public static void createConnection() {
 
         String url = ConfigReader.getProperty("db_url");
-        String user = ConfigReader.getProperty("db_user");
+        String user = ConfigReader.getProperty("db_username");
         String password = ConfigReader.getProperty("db_password");
         try {
             connection = DriverManager.getConnection(url, user, password);
@@ -59,6 +65,9 @@ public class DBUtility {
             e.printStackTrace();
         }
         int result = statement.executeUpdate(query);
+        if(result==0){
+            throw new RuntimeException("Update was unsuccessful.");
+        }
     }
     public static List<List<Object>> getQueryResultAsListOfLists(String query) {
         executeQuery(query);
