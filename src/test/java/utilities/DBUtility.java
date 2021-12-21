@@ -58,7 +58,7 @@ public class DBUtility {
             e.printStackTrace();
         }
     }
-    public static void updateQuery(String query) throws SQLException {
+    public static int updateQuery(String query) throws SQLException {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         } catch (SQLException e) {
@@ -68,6 +68,8 @@ public class DBUtility {
         if(result==0){
             throw new RuntimeException("Update was unsuccessful.");
         }
+
+        return result;
     }
     public static List<List<Object>> getQueryResultAsListOfLists(String query) {
         executeQuery(query);
