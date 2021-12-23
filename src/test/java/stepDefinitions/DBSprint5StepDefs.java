@@ -8,5 +8,5 @@ public class DBSprint5StepDefs {
     // rebase code
 
 
-    public void Magda(){}
+    public static void Duotech(){}
 }
