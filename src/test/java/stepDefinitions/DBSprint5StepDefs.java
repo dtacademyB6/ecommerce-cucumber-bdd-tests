@@ -11,6 +11,9 @@ public class DBSprint5StepDefs {
 
     public void holidaySeason(){}
 
+
+    public void happyNewYear(){}
+
    
 
 }
