@@ -13,6 +13,9 @@ public class DBSprint5StepDefs {
 
 
     public void happyNewYear(){}
+    
+    
+    public void happyChristmas(){}
 
    
 
