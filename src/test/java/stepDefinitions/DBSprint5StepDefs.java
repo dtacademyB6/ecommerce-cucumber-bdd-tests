@@ -8,5 +8,9 @@ public class DBSprint5StepDefs {
     // rebase code
 
 
-    public static void Duotech(){}
+
+    public void holidaySeason(){}
+
+   
+
 }
