@@ -34,8 +34,7 @@ public class VideoGameApiTests {
         then(). log().all(). // assertions on the returned response are put here
                 assertThat().
                 statusCode(200).
-                header("Content-Type", "application/json").
-                header("Content-Length", "1422");
+                header("Content-Type", "application/json");
 
 
 
@@ -107,6 +106,33 @@ public class VideoGameApiTests {
                      statusCode(200).
                       body("id", is(id)).
                       body("name", equalTo("Super Mario 64"));
+
+    }
+
+
+    @Test
+    public void testGETSpecificVideogame(){
+
+        // Rest Assured methods use Builder pattern
+
+        // Rest Assured also uses Gherkin format
+
+        given(). // anything that you send along with the request is added here
+                header("Accept", "application/json").
+                pathParam("videoGameId", 1).
+                when(). log().all().  // indicate what type of request and the endpoint
+                get("/videogames/{videoGameId}").
+                then(). log().all(). // assertions on the returned response are put here
+                assertThat().
+                statusCode(200).
+//                body().
+                header("Content-Type", "application/json");
+
+
+
+
+
+
 
     }
 
