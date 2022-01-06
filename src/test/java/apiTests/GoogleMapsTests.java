@@ -25,7 +25,11 @@ public class GoogleMapsTests {
                 get("/findplacefromtext/json").
                 then().log().all().
                 statusCode(200).
-                body("status", equalTo("OK")).extract().asString();
+                body("status", equalTo("OK")).
+                time(lessThan(2000L)).
+                extract().asString();
+
+
 
 
         System.out.println(responseBody);

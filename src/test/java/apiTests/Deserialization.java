@@ -1,7 +1,7 @@
 package apiTests;
 
+import apiTests.pojos.PlacePojosGeneratedFromOnlineSource.Place;
 import apiTests.pojos.VideoGame;
-import io.cucumber.java.sl.In;
 import io.restassured.common.mapper.TypeRef;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -225,9 +225,30 @@ public class Deserialization {
     }
 
 
+    @Test
+    public void deserializeComplexJsonIntoPOJO() {
+        baseURI = "https://maps.googleapis.com/maps/api/place";
 
 
+        Place responseAsPlacePOJO = given().
+                queryParam("fields", "formatted_address,name,rating,opening_hours").
+                queryParam("input", "Mike's American Grill").
+                queryParam("inputtype", "textquery").
+                queryParam("key", "AIzaSyDdNmHK2RgQVbpksSzAFI6A2byAcdm_5l8").
+                when().log().all().
+                get("/findplacefromtext/json").
+                then().log().all().
+                statusCode(200).
+                body("status", equalTo("OK")).extract().as(Place.class);
 
+        System.out.println(responseAsPlacePOJO);
+
+        Assert.assertEquals("Mike's American", responseAsPlacePOJO.getCandidates().get(0).getName());
+        Assert.assertEquals("OK", responseAsPlacePOJO.getStatus());
+        Assert.assertEquals(true, responseAsPlacePOJO.getCandidates().get(0).getOpeningHours().getOpenNow());
+
+
+    }
 
 
 
