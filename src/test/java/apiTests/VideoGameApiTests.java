@@ -1,6 +1,9 @@
 package apiTests;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -27,6 +30,9 @@ public class VideoGameApiTests {
 
         // Rest Assured also uses Gherkin format
 
+        //
+
+
         given(). // anything that you send along with the request is added here
                header("Accept", "application/json").
         when(). log().all().  // indicate what type of request and the endpoint
@@ -38,8 +44,20 @@ public class VideoGameApiTests {
 
 
 
+        RequestSpecification requestSpecification = given().
+                         header("Accept", "application/json");
 
 
+//
+        Response response = requestSpecification.
+                when().log().all().  // indicate what type of request and the endpoint
+                get("/videogames");
+
+
+        response.then().log().all(). // assertions on the returned response are put here
+                assertThat().
+                statusCode(200).
+                header("Content-Type", "application/json").extract().jsonPath();
 
 
     }
